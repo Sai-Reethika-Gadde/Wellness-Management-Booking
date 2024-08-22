@@ -1,0 +1,82 @@
+<!-- Navbar -->
+<div class="navbar" @fadeIn>
+  <div class="logo">Wellness Management</div>
+  <nav>
+    <ul>
+      <li><a (click)="scrollToSection('home')">Home</a></li>
+      <li><a (click)="scrollToSection('services')">Services</a></li>
+      <li><a (click)="scrollToSection('about')">About</a></li>
+      <li><a (click)="scrollToSection('contact')">Contact</a></li>
+      <li><a routerLink="/login">Login</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Hero Section -->
+<div #homeSection id="home" class="hero" @fadeIn>
+  <div class="hero-content">
+    <h1>Welcome to Our Wellness Center</h1>
+    <p>Discover our range of services for your well-being.</p>
+    <a class="btn" (click)="scrollToSection('services')">Explore Services</a>
+  </div>
+</div>
+
+<!-- Content Sections -->
+<div class="content">
+  <!-- Services Section -->
+  <!--<h2 class="text-center fw-bold">Our Services </h2>-->
+  <h2 class="text-center">Our Services</h2>
+  <section #servicesSection id="services" class="services" @slideIn>
+    <div class="service-item">
+      <div class="image yoga"></div>
+      <h3>Yoga Classes</h3>
+      <p>Join our yoga classes to improve your flexibility and reduce stress.</p>
+    </div>
+    <div class="service-item">
+      <div class="image nutrition"></div>
+      <h3>Nutritional Counselling</h3>
+      <p>Get personalized nutritional advice to achieve your health goals.</p>
+    </div>
+    <div class="service-item">
+      <div class="image fitness"></div>
+      <h3>Group Fitness</h3>
+      <p>Participate in group fitness sessions to stay motivated and fit.</p>
+    </div>
+    <div class="service-item">
+      <div class="image mental-health"></div>
+      <h3>Mental Health Counselling</h3>
+      <p>Receive support and guidance for your mental well-being.</p>
+    </div>
+    <div class="service-item">
+      <div class="image massage"></div>
+      <h3>Massage Therapy</h3>
+      <p>Relax and rejuvenate with our professional massage therapy.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section #aboutSection id="about" class="about" @fadeIn>
+    <h2>About Us</h2>
+    <p>Welcome to Wellness Management, where we offer services to enhance your health and well-being.</p>
+    <p>Our team provides yoga classes, nutritional counselling, group fitness sessions, mental health counselling, and massage therapy.</p>
+    <p>We aim to create a supportive environment to help you achieve your health goals. Join us and experience our comprehensive wellness programs.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section #contactSection id="contact" class="contact" @fadeIn>
+    <h2>Contact Us</h2>
+    <address>
+      123 Wellness Ave,<br>
+      Wellness City,<br>
+      Country<br>
+      Phone: +123456789<br>
+    </address>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2024 Wellness Center. All rights reserved.</p>
+  </div>
+</footer>

@@ -1,0 +1,39 @@
+<!-- Registration Component -->
+<div class="background-image">
+  <header class="header">
+    <div class="logo">
+      <span class="logo-text">Wellness Management</span>
+    </div>
+    <nav class="nav-links">
+      <a routerLink="/home">Home</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </nav>
+  </header>
+  <div class="container">
+    <mat-card class="form-container" @fadeIn>
+      <h2>Registration</h2>
+      <form (ngSubmit)="register()">
+        <mat-form-field appearance="fill" class="form-group">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" id="username" name="username" [(ngModel)]="user.username" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-group">
+          <mat-label>Full Name</mat-label>
+          <input matInput type="text" id="fullName" name="fullName" [(ngModel)]="user.fullName" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-group">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" id="email" name="email" [(ngModel)]="user.email" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-group">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" id="password" name="password" [(ngModel)]="user.password" required>
+        </mat-form-field>
+        <div class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <button mat-flat-button color="primary" type="submit">Register</button>
+      </form>
+      <p>Already have an account? <a routerLink="/login">Login here</a></p>
+    </mat-card>
+  </div>
+</div>

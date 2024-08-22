@@ -1,0 +1,97 @@
+/* Background Image */
+.background-image {
+  background-image: url('images/1.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 2s;
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  color: white;
+  height: 60px; /* Fixed height for the header */
+}
+
+/* Logo Text */
+.logo-text {
+  font-size: 24px;
+}
+
+/* Navigation Links */
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* Container Styling */
+.container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Form Container */
+.form-container {
+  background: rgba(255, 255, 255, 0.8); /* Slight white background for readability */
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px; /* Max width for the form container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Group */
+.form-group {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Error Message */
+.text-danger {
+  color: red;
+  margin-bottom: 16px;
+}
+
+/* Button Styling */
+.login-button {
+  background-color: #007bff; /* Custom color for the button */
+  color: white;
+  margin-top: 16px;
+}
+
+/* Add margin between button and hyperlink */
+.form-container p {
+  margin-top: 16px;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

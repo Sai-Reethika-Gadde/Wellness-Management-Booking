@@ -1,0 +1,109 @@
+<!-- dashboard.component.html -->
+<div class="background-image">
+<div class="dashboard-header">
+  <mat-toolbar color="primary">
+    <span>Dashboard</span>
+    <span class="spacer"></span>
+    <button mat-raised-button (click)="logout()">Logout</button>
+  </mat-toolbar>
+</div>
+
+<div class="container">
+  <!-- Booking Form -->
+  <mat-card class="form-container">
+    <mat-card-header>
+      <mat-card-title>{{ isEditing ? 'Edit Appointment' : 'Book Appointment' }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="isEditing ? editForm : appointmentForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="fullName" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Appointment Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="appointmentDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Time Slot</mat-label>
+          <mat-select formControlName="timeSlot" required>
+            <mat-option *ngFor="let time of timeSlots" [value]="time">{{ time }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Wellness Service</mat-label>
+          <mat-select formControlName="wellnessService" required>
+            <mat-option *ngFor="let service of wellnessServices" [value]="service">{{ service }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="isEditing ? editForm.invalid : appointmentForm.invalid">
+          {{ isEditing ? 'Update Appointment' : 'Book Appointment' }}
+        </button>
+        <button mat-raised-button type="button" *ngIf="isEditing" (click)="resetEditForm()">Cancel</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Appointments Table -->
+  <mat-card class="table-container">
+    <mat-card-header>
+      <mat-card-title>Appointments</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="appointments" class="mat-elevation-z8">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let appointment"> {{ appointment.id }} </td>
+        </ng-container>
+
+        <!-- Full Name Column -->
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef> Full Name </th>
+          <td mat-cell *matCellDef="let appointment"> {{ appointment.fullName }} </td>
+        </ng-container>
+
+        <!-- Appointment Date Column -->
+        <ng-container matColumnDef="appointmentDate">
+          <th mat-header-cell *matHeaderCellDef> Appointment Date </th>
+          <td mat-cell *matCellDef="let appointment"> {{ appointment.appointmentDate | date }} </td>
+        </ng-container>
+
+        <!-- Time Slot Column -->
+        <ng-container matColumnDef="timeSlot">
+          <th mat-header-cell *matHeaderCellDef> Time Slot </th>
+          <td mat-cell *matCellDef="let appointment"> {{ appointment.timeSlot }} </td>
+        </ng-container>
+
+        <!-- Wellness Service Column -->
+        <ng-container matColumnDef="wellnessService">
+          <th mat-header-cell *matHeaderCellDef> Wellness Service </th>
+          <td mat-cell *matCellDef="let appointment"> {{ appointment.wellnessService }} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let appointment">
+            <button mat-icon-button color="primary" (click)="editAppointment(appointment)" *ngIf="!isEditing">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteAppointment(appointment.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let appointment; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>

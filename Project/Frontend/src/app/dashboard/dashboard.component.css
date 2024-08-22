@@ -1,0 +1,91 @@
+/* dashboard.component.css */
+
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.mat-toolbar {
+  background: rgba(0, 0, 0, 0.6); /* Uniform background color for the entire toolbar */
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  margin-top: 20px;
+}
+
+.form-container, .table-container {
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the cards */
+  border-radius: 8px;
+  background-color: white;
+}
+
+.form-container {
+  margin-bottom: 40px; /* Extra space below the form container */
+}
+
+mat-card-title {
+  font-weight: bold;
+  color: rgb(32, 177, 63); /* Primary color for card titles */
+}
+
+mat-form-field {
+  margin-bottom: 16px;
+}
+
+mat-form-field .mat-form-field-wrapper {
+  background: rgba(63, 81, 181, 0.1); /* Light primary color background for form fields */
+  border-radius: 4px;
+}
+
+button.mat-raised-button {
+  margin-top: 16px;
+}
+
+button.mat-raised-button:hover {
+  background-color: #303f9f; /* Darker shade of primary color for hover effect */
+}
+
+table.mat-elevation-z8 {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table.mat-elevation-z8 th, table.mat-elevation-z8 td {
+  padding: 12px;
+}
+
+table.mat-elevation-z8 th {
+  background-color: rgba(0, 0, 0, 0.6); /* Primary color for table header */
+  color: white;
+}
+
+table.mat-elevation-z8 td {
+  background-color: white;
+}
+
+table.mat-elevation-z8 tr:hover {
+  background-color: #f5f5f5; /* Light grey background on hover */
+}
+
+.mat-card-header {
+  background-color: #e8eaf6; /* Light indigo background for card header */
+  border-radius: 8px 8px 0 0;
+}
+
+.mat-card-content {
+  padding: 16px;
+}
+
+.mat-label{
+  color: grey;
+}
